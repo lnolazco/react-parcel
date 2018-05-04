@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Ad Demo</title>
+
+  <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+  <script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+  </script>
+
+  <script>
+    googletag.cmd.push(function () {
+
+      // googletag.pubads().setCookieOptions(0);
+
+      googletag.defineSlot('/6499/example//banner', [468, 60], 'example__banner-auto-gen-id-2')
+        .addService(googletag.pubads());
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+    });
+  </script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    parent.postMessage("myevent", "*");
+    // document.querySelector('button').onclick = function () {
+    //   // parent.postMessage("message to be sent", "http://the-website-that-will-receive-the-msg.com")
+    //   parent.postMessage("myevent", "*")
+    // };
+  </script>
+  <!-- /8125220/300x250_mtf -->
+  <div id='example__banner-auto-gen-id-2' style='height:100px; width:500px;'>
+    <script>
+      // console.log('VERSION', googletag.getVersion());
+      googletag.cmd.push(function () { googletag.display('example__banner-auto-gen-id-2'); });
+    </script>
+  </div>
+</body>
+
+</html>

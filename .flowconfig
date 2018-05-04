@@ -1,0 +1,15 @@
+[ignore]
+
+[include]
+src
+
+[libs]
+
+[lints]
+all=warn
+sketchy-null-bool=error
+
+[options]
+include_warnings=true
+
+[strict]

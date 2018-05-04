@@ -1,5 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
+// import { DFPSlotsProvider, AdSlot } from 'react-dfp';
+// import Dfp from 'react-simple-dfp';
 
 import TodoStore from './stores/todo';
 
@@ -27,6 +29,11 @@ class App extends React.Component {
             );
           }}
         </TodoStore>
+        <h3>Another todo store</h3>
+        <TodoStore>
+          {({ state }) => state.todo.map(item => <p key={item}>{item}</p>)}
+        </TodoStore>
+        {/* <Dfp adUnitPath="/8125220/300x250_mtf" adSize={[300, 250]} /> */}
       </div>
     );
   }

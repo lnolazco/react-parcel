@@ -1,11 +1,19 @@
-import React from 'react';
-const { Fragment } = React;
+/* @flow */
 
-const ApplicationContext = React.createContext();
+import React, { Component } from 'react';
+const { Fragment } = React;
+const ApplicationContext = React.createContext('demo');
 const { Consumer, Provider } = ApplicationContext;
 
-class TodoStore extends React.Component {
-  constructor(props) {
+type Props = {
+  children: any,
+};
+type State = {
+  todo: Array<any>,
+};
+
+class TodoStore extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {

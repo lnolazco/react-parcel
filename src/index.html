@@ -4,11 +4,63 @@
 <head>
   <meta charset="utf-8" />
   <title>React Parcel Demo</title>
+  <style>
+    .iframe1 {
+      width: 400px;
+      height: 100px;
+      position: absolute;
+      top: 5px;
+      left: -14px;
+      opacity: 0.5;
+      z-index: 1;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="app"></div>
-  <script src="./index.js"></script>
+  <script type="text/javascript">
+    document.cookie = 'TEST=LUISSSSS!!!!!!';
+    console.log('PARENT PAGE', document.cookie);
+
+
+    var eventMethod = window.addEventListener
+      ? "addEventListener"
+      : "attachEvent";
+    var eventer = window[eventMethod];
+    var messageEvent = eventMethod === "attachEvent"
+      ? "onmessage"
+      : "message";
+    eventer(messageEvent, function (e) {
+
+      // if (e.origin !== 'http://the-trusted-iframe-origin.com') return;
+
+      if (e.data === "myevent" || e.message === "myevent")
+        alert('Message from iframe just came!');
+
+      console.log('got message >>>>>>>>>>');
+      console.log(e);
+    });
+  </script>
+  <h1>Ad - test</h1>
+  <!-- allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox  allow-top-navigation-by-user-activation ="allow-same-origin allow-scripts" -->
+  <iframe src="cases/ad.html" style="height: 200px; width: 600px"></iframe>
+
+  <h1>Allow Scripts - Test</h1>
+  <div style="position: relative">
+    <!-- The url from the victim site -->
+    <!-- <iframe src="cases/allowscripts.html" sandbox="allow-same-origin allow-scripts"></iframe> -->
+  </div>
+
+  <h1>Click - Test</h1>
+  <div style="position: relative">
+    <div>Click to get rich now:</div>
+    <!-- The url from the victim site -->
+    <!-- <iframe class="iframe1" sandbox="" src="cases/clickbutton.html"></iframe> -->
+
+    <button>Click here!</button>
+
+    <div>...And you're cool (I'm a cool hacker actually)!</div>
+  </div>
 </body>
 
 </html>
